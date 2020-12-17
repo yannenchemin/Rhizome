@@ -7,7 +7,7 @@ let v3;
 
 function setup() {
   createCanvas(1000, 1000);
-  background(220);
+
   noStroke();
 
   v1 = createVector(mouseX,mouseY);
@@ -15,12 +15,12 @@ function setup() {
   v3 = createVector(mouseX,mouseY);
 
 for(let i = 0; i < 50; i++){
-  light_point.push(new LED());
+  light_point.push(new LED()); //클래스 읽
+  }
 }
-
-}
-
+//------------------------------------------
 function draw() {
+    background(220);
 fill(v1, v2, v3, [alpha]);
 
 if (random(10)>9) {
@@ -32,22 +32,25 @@ if (random(10)>9) {
     light_point[i].display();
   }
 }
-
+//------------------------------------------
 class LED_light{
 constructor() {
+  this.position = createVector(x, y);
+
   this.x = mouseX;
   this.y = mouseY;
   this.light_speed = 1;
   this.position = createVector(mouseX,mouseY);
 }
 move(){
-  this.x += random(-this.spped, this.speed);
-  this.y += random(-this.spped, this.speed);
+  this.x += random(-this.light_speed, this.light_speed);
+  this.y += random(-this.light_speed, this.light_speed);
 }
 
 display(){
 ellipse(this.position.x, this.position.y, 12, 12);
 
+}
 }
 
 
