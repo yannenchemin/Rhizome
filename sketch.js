@@ -1,20 +1,33 @@
 let x,y;
+let v1;
+let v2;
+let v3;
 
 function setup() {
   createCanvas(1000, 1000);
+  background(220);
+  noStroke();
+  v1 = createVector(mouseX,mouseY);
+  v2 = createVector(mouseX,mouseY);
+  v3 = createVector(mouseX,mouseY);
 }
 
 function draw() {
-  background(220);
 
-ellipse(this.position.x, this.position.y, 12, 12);
-triangle(150,200, 200, 120, 250, 200)
+fill(v1, v2, v3, [alpha]);
+
+if (random(10)>9) {
+  rect(10,10,10,10);
+  triangle(150,200, 200, 120, 250, 200);
+}
+
+
 }
 
 
 //---------- 외부에서 받은 3개의 코드
 /*
-if (random(10)>9) {rect(10,10,10,10)}; //랜
+if (random(10)>9) {rect(10,10,10,10)}; //랜덤
 
 sleepy = createVector(0,100); applyForce(sleepy); //클래스 만들
 
