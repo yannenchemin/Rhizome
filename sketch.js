@@ -6,7 +6,7 @@ let v2;
 let v3;
 
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(600, 600);
 
   noStroke();
 
@@ -15,7 +15,7 @@ function setup() {
   v3 = createVector(mouseX,mouseY);
 
 for(let i = 0; i < 50; i++){
-  light_point.push(new LED()); //클래스 읽
+  light_point.push(new LED_light()); //클래스 읽
   }
 }
 //------------------------------------------
@@ -33,14 +33,13 @@ if (random(10)>9) {
   }
 }
 //------------------------------------------
+
 class LED_light{
 constructor() {
-  this.position = createVector(x, y);
-
-  this.x = mouseX;
-  this.y = mouseY;
-  this.light_speed = 1;
-  this.position = createVector(mouseX,mouseY);
+  this.x = random(width);
+  this.y = random(height);
+  this.light_speed = 100;
+  this.position = createVector(width/2,height/2);
 }
 move(){
   this.x += random(-this.light_speed, this.light_speed);
@@ -48,6 +47,7 @@ move(){
 }
 
 display(){
+fill(100,100,100);
 ellipse(this.position.x, this.position.y, 12, 12);
 
 }
@@ -55,7 +55,8 @@ ellipse(this.position.x, this.position.y, 12, 12);
 
 
 
-//---------- 외부에서 받은 3개의 코드
+
+//---------- 외부에서 받은 6개의 코드
 /*
 if (random(10)>9) {rect(10,10,10,10)}; //랜덤
 
