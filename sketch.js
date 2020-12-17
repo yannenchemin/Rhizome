@@ -6,51 +6,52 @@ let v2;
 let v3;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(410, 400);
 
   noStroke();
 
-  v1 = createVector(mouseX,mouseY);
-  v2 = createVector(mouseX,mouseY);
-  v3 = createVector(mouseX,mouseY);
+  v1 = createVector(mouseX, mouseY);
+  v2 = createVector(mouseX, mouseY);
+  v3 = createVector(mouseX, mouseY);
 
-for(let i = 0; i < 50; i++){
-  light_point.push(new LED_light()); //클래스 읽
+  for (let i = 0; i < 50; i++) {
+    light_point.push(new LED_light()); //클래스 읽
   }
 }
 //------------------------------------------
 function draw() {
-    background(220);
-fill(v1, v2, v3, [alpha]);
+  print(mouseX, mouseY);
+  background(220);
+  fill(v1, v2, v3, [alpha]);
 
-if (random(10)>9) {
-  rect(10,10,10,10);
-  triangle(150,200, 200, 120, 250, 200);
+  if (random(10) > 9) {
+    rect(10, 10, 10, 10);
+    triangle(150, 200, 200, 120, 250, 200);
   }
-  for (let i = 0; i < light_point.length; i++){
+  for (let i = 0; i < light_point.length; i++) {
     light_point[i].move();
     light_point[i].display();
   }
 }
 //------------------------------------------
 
-class LED_light{
-constructor() {
-  this.x = random(width);
-  this.y = random(height);
-  this.light_speed = 100;
-  this.position = createVector(width/2,height/2);
-}
-move(){
-  this.x += random(-this.light_speed, this.light_speed);
-  this.y += random(-this.light_speed, this.light_speed);
-}
+class LED_light {
+  constructor() {
+    this.x = random(width);
+    this.y = random(height);
+    this.light_speed = 100;
+    this.position = createVector(200,170);
+  }
+  move() {
+    this.x += random(-this.light_speed, this.light_speed);
+    this.y += random(-this.light_speed, this.light_speed);
+  }
 
-display(){
-fill(100,100,100);
-ellipse(this.position.x, this.position.y, 12, 12);
+  display() {
+    fill(100, 100, 100);
+    ellipse(this.position.x, this.position.y, 12, 12);
 
-}
+  }
 }
 
 
