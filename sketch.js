@@ -50,7 +50,7 @@ class LED_light {
   display() {
     fill(100, 100, 100);
     ellipse(this.position.x, this.position.y, 12, 12);
-
+ 
   }
 }
 
