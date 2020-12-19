@@ -1,9 +1,9 @@
 let light_point = []; //Finger_Point 객체들의 배열
 let x = 100;
 let y = 100;
-let v1;
-let v2;
-let v3;
+let v1 = 100;
+let v2 = random();
+let v3 = random();
 
 function setup() {
   createCanvas(410, 400);
@@ -16,11 +16,6 @@ function setup() {
   
 
 
-
-  v1 = createVector(mouseX, mouseY);
-  v2 = createVector(mouseX, mouseY);
-  v3 = createVector(mouseX, mouseY); //왜 이녀석들은 적용이 안될까?
-
   for (let i = 0; i < 50; i++) {
     light_point.push(new LED_light()); //클래스 읽기
   }
@@ -29,7 +24,9 @@ function setup() {
 function draw() {
   print(mouseX, mouseY);
   background(220);
-  fill(v1, v2, v3,[alpha]);
+
+  
+  fill(v1, v2, v3);
   
   
   if (random(10) > 9) {
