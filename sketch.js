@@ -9,6 +9,13 @@ function setup() {
   createCanvas(410, 400);
 
   noStroke();
+  
+  slider = createSlider(1,100,1); 
+  slider.position(width/2-50,height-50); //슬라이더 좌표
+  slider.style('width','100px'); //슬라이더 길이
+  
+
+
 
   v1 = createVector(mouseX, mouseY);
   v2 = createVector(mouseX, mouseY);
@@ -22,8 +29,9 @@ function setup() {
 function draw() {
   print(mouseX, mouseY);
   background(220);
-  fill(v1, v2, v3);
-
+  fill(v1, v2, v3,[alpha]);
+  
+  
   if (random(10) > 9) {
     rect(10, 10, 10, 10);
     triangle(150, 200, 200, 120, 250, 200);
